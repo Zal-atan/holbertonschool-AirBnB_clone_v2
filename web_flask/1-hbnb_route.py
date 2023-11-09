@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-from flask import Flask, render_template, request
+"""This scripts opens a basic Flask server with two pages"""
+from flask import Flask
 
 app = Flask(__name__)
 
