@@ -35,7 +35,8 @@ class DBStorage:
 
         # start engine
         self.__engine = create_engine(f'mysql+mysqldb://{user}:{password}'
-                                      f'@{host}/{database}', pool_pre_ping=True)
+                                      f'@{host}/{database}',
+                                      pool_pre_ping=True)
 
         # check if test
         if getenv('HBNB_ENV') == "test":
