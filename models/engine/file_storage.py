@@ -31,8 +31,8 @@ class FileStorage:
             filter_dict = {}
             for obj in FileStorage.__objects.values():
                 if type(obj) is cls:
-                    filter_dict.update({obj.to_dict()['__class__'] + "."
-                                        + obj.id: obj})
+                    filter_dict.update({obj.to_dict()['__class__'] + "." +
+                                        obj.id: obj})
             return filter_dict
 
     def new(self, obj):
