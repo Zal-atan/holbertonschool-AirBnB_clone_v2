@@ -47,8 +47,8 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string representation of the instance"""
-        if '_sa_instance_state' in self.__dict__:
-            del self.__dict__['_sa_instance_state']
+        # if '_sa_instance_state' in self.__dict__:
+        #     del self.__dict__['_sa_instance_state']
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
         return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
 
@@ -68,7 +68,8 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         if "_sa_instance_state" in dictionary:
-            dictionary.pop("_sa_instance_state", None)
+            # dictionary.pop("_sa_instance_state", None)
+            del self.__dict__['_sa_instance_state']
         return dictionary
 
     def delete(self):
