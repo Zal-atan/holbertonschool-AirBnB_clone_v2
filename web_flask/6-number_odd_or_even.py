@@ -1,0 +1,57 @@
+#!/usr/bin/python3
+"""This scripts opens a basic Flask server with five pages"""
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+
+@app.route("/", strict_slashes=False)
+def dashboard():
+
+    return ("Hello HBNB!")
+
+
+@app.route("/hbnb", strict_slashes=False)
+def hbnb():
+
+    return ("HBNB")
+
+
+@app.route("/c/<text>", strict_slashes=False)
+def variable_page(text):
+
+    return "C " + text.replace("_", " ")
+
+
+@app.route("/python/", strict_slashes=False, defaults={'text': 'is_cool'})
+@app.route("/python/<text>", strict_slashes=False)
+def python_variable_page(text):
+
+    return "Python " + text.replace("_", " ")
+
+
+@app.route("/number/<int:n>", strict_slashes=False)
+def number_only_page(n):
+
+    return f"{n} is a number"
+
+
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def template_page(n):
+
+    return render_template('5-number.html', value=n)
+
+
+@app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
+def odd_or_even_page(n):
+    oddEven = ""
+    if n % 2 == 0:
+        oddEven = "even"
+    else:
+        oddEven = "odd"
+    return render_template('6-number_odd_or_even.html',
+                           value=n, value1=oddEven)
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=5000)
