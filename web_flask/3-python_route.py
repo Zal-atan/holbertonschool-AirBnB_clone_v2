@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This scripts opens a basic Flask server with three pages"""
+"""This scripts opens a basic Flask server with four pages"""
 from flask import Flask
 
 app = Flask(__name__)
@@ -21,6 +21,13 @@ def hbnb():
 def variable_page(text):
 
     return "C " + text.replace("_", " ")
+
+
+@app.route("/python/", strict_slashes=False, defaults={'text': 'is_cool'})
+@app.route("/python/<text>", strict_slashes=False)
+def python_variable_page(text):
+
+    return "Python " + text.replace("_", " ")
 
 
 if __name__ == "__main__":
