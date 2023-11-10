@@ -32,26 +32,27 @@
 	list-style-type: none;
 	display: none;
 	background-color: #FAFAFA;
-	width: 100%;
+	/* width: 100%; */
 	max-height: 300px;
+	position: relative;
 
 	margin-left: -1px;
-	margin-top: 8px;
-	padding: 25px 0px;
+	/* margin-top: 8px; */
+	padding: 10%;
 
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+
 	overflow: auto;
-	scrollbar-width: none;
 	/* scroll-behavior: smooth; */
 }
 
 .locations:hover .popover {
-	display: inline-block;
+	display: block;
 }
 
 .amenities:hover .popover {
-	display: inline-block;
+	display: block;
 }
 
 ul {
@@ -66,7 +67,7 @@ li {
 h2 {
 	font-size: 16px;
 	padding-left: 30px;
-	margin: 0px;
+	margin: 30px;
 }
 
 h3 {
